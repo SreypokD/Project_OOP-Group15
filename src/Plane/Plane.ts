@@ -7,13 +7,16 @@ import { FightAttendent } from "../Person/Employee/FightAttenden";
 import { Flight } from "../Flight/Flight";
 
 export class Plane{
+   getSalary() {
+       throw new Error("Method not implemented.");
+   }
    private registrationNumber:string;
    private model : string;
    seats:Seat[] = [];
    private pilot : Pilot;
    private flightAttendants:FightAttendent[] = [];
    private coPilot : CoPilot;
-   fights:Flight[]= [];
+   
     
    constructor(registrationNumber:string, model : string, pilot : Pilot, copilot : CoPilot){
       this.registrationNumber = registrationNumber;
@@ -34,12 +37,25 @@ export class Plane{
    getFlightAttendent(){
       return this.flightAttendants;
    }
-   
-   
-   
-   getFlight(){
-      return this.fights;
+   getPilotSalary(){
+      return this.pilot.getSalary();
    }
+   getCoPilotSalary(){
+      return this.coPilot.getSalary();
+   }
+   // getFightAttendentSalary(){
+   //    return this.flightAttendants.getSalary();
+   // }
+   getFightAttendentSalary(){
+      let result : number = 0;
+      this.flightAttendants.forEach(salary => {
+         result+=salary.getSalary();
+        
+      });
+      return result;
+   }
+
+
  
    
 }

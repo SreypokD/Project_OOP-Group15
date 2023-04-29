@@ -33,8 +33,8 @@ export class Flight {
         return this.startTime.getDate();
     }
     // get end time 
-    getEndTime(): DateTime {
-        return this.endTime;
+    getEndTime(): string {
+        return this.endTime.getDate();
     }
 
 

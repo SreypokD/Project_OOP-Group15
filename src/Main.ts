@@ -41,10 +41,10 @@ let seat6 = new Seat("4B", "30$");
 // create pilot employee
 let pilot = new Pilot("GIMGA" ,"GO" , "F01" , 400);
 // create pilot employee
-let Co_pilot = new CoPilot("GIMGA" ,"GO" , "F02" , 400);
+let Co_pilot = new CoPilot("GIMGA" ,"GO" , "F02" , 300);
 
 // create flight atttendent
-let flight_attendent = new FightAttendent("Cheiipok" ,"Doem" , "F03" , 400);
+let flight_attendent = new FightAttendent("Cheiipok" ,"Doem" , "F03" , 500);
 
 
 // create plane 
@@ -82,13 +82,23 @@ let booking2 = new Booking("B22" ,trip1 , seat1,passanger2,TypeBooking.NoReturn)
 
 // =====================passenger ====================
 passanger1.getBookingNumber(booking1);
-
+// ================plane =============================
+// add seat to plane
+planPP.addSeat(seat1);
+planPP.addFlightAttendent(flight_attendent); 
+planPP.getFlightAttendent(); 
 // ===========================Airline ===================
 // add flight to airline 
 airlinePP.addFlight(flight);
 airlinePP.addFlight(flight2);
 // add passenger to airline
 airlinePP.addPassanger(passanger1);
+// add plane to airline
+airlinePP.addPlanes(planPP);
+airlinePP.getTotalSalary(planPP);
+// console.log(airlinePP);
+console.log(airlinePP.getTotalSalary(planPP));
+
 
 // =========================Gate =================
 gatePP.addFightToGate(flight);
@@ -100,14 +110,10 @@ airportPP.addGate(gatePP);
 // add route to airport 
 airportPP.addRoute(routeArrival);
 
-// ================plane =============================
-// add seat to plane
-planPP.addSeat(seat1);
-planPP.addFlightAttendent(flight_attendent); 
-planPP.getFlightAttendent(); 
+
 // console.log(planPP.getPilot());
 
-// console.log(planPP);
+
 
 
 
@@ -116,7 +122,7 @@ planPP.getFlightAttendent();
 pilot.addFlight(flight);
 pilot.addFlight(flight1);
 pilot.addFlight(flight2);
-console.log(pilot.getFlights('28/04/2022'));
+// console.log(pilot.getFlights('28/04/2022'));
 
 
 // =====================Trips =========================
@@ -166,6 +172,6 @@ flight.addMeal(Meal.GlutenFreeMeal);
 flight2.addMeal(Meal.HalalMeal);
 flight2.addMeal(Meal.ToddierMeal);
 
-console.log(airlinePP.getFood(flight));
-console.log(airlinePP.getFood(flight2));
+// console.log(airlinePP.getFood(flight));
+// console.log(airlinePP.getFood(flight2));
 

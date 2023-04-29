@@ -2,12 +2,14 @@ import { Flight } from "../Flight/Flight";
 import { Passager } from "../Person/Passenger/Passanger";
 import { Booking } from "../Booking/Booking";
 import { Meal } from "../Flight/Service/Meal";
+import { Plane } from "../Plane/Plane";
 export class Airline{
     private airlineName: string;
     private addresss: string;
     private flightNumber: Flight [] = []; 
     private passanger : Passager [] = [];
     bookings : Booking[] = [];
+    planes : Plane[] = [];
     constructor (airlineName: string , addresss: string){
         this.airlineName = airlineName;
         this.addresss = addresss;
@@ -60,5 +62,17 @@ export class Airline{
         })
         return result;
 
+    }
+    addPlanes(other:Plane){
+        return this.planes.push(other);
+    }
+    // get plane in airline 
+    getTotalSalary(plan : Plane){
+        let result :number = 0;
+        for(let plane of this.planes){
+           result = plane.getPilotSalary()+plane.getCoPilotSalary()+plane.getFightAttendentSalary();
+           
+        }
+        return result;
     }
 }
