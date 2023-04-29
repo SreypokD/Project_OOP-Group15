@@ -3,6 +3,7 @@ import { CreditCard } from "./Creditcard";
 import { FragmentFlyer } from "./FragmentFlyer";
 import { Baggage } from "./Baggage";
 import { Booking } from "../../Booking/Booking";
+import { Gate } from "../../Plane/Gate";
 
 export class Passager{
     private firstName: string;
@@ -41,5 +42,16 @@ export class Passager{
     // get booking number of passenger
     getBookingNumber(bookingNumber : Booking){
         return this.bookings.push(bookingNumber);
+    }
+
+    getGateForPlane(other:Booking):Gate|undefined{
+        let result:Gate|undefined;
+        for(let booking of this.bookings){
+            if(booking==other){
+               result=(booking.getFlight());
+            }
+        }
+        return result;   
+       
     }
 }

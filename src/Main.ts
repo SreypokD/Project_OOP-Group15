@@ -50,15 +50,17 @@ let flight_attendent = new FightAttendent("Cheiipok" ,"Doem" , "F03" , 500);
 // create plane 
 let planPP = new Plane("OH-LWP","scale" ,pilot,Co_pilot);
 let planGG = new Plane("OH-LWPP","scale" ,pilot,Co_pilot);
-// create Flight
-let flight = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
-
-let flight1 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
-let flight2 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
-let flight3 = new Flight("AY643", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
-
 // create get 
-let gatePP = new Gate("11A",flight);
+let gatePP1 = new Gate("11A");
+let gatePP2 = new Gate("11A");
+// create Flight
+let flight = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP,gatePP1);
+
+let flight1 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP,gatePP2);
+let flight2 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP,gatePP1);
+let flight3 = new Flight("AY643", dateStart , dateEnd ,routeArrival,routeDeparture,planPP,gatePP2);
+
+
 // create bag of passager
 let baggage1 = new Baggage("PMC11");
 let baggage2 = new Baggage("PMC11");
@@ -73,8 +75,8 @@ let passanger2 = new Passager("Sreymom" , "Chhum" , 20 , "Mom@gmail.com" , "083 
 // create Trip
 let trip1 = new Trip("Singapore" , flight, baggage1);
 // create booking 
-let booking1 = new Booking("B11" ,trip1 , seat1,passanger1,TypeBooking.Return);
-let booking2 = new Booking("B22" ,trip1 , seat1,passanger2,TypeBooking.NoReturn)
+let booking1 = new Booking("B11" ,trip1 , seat1,passanger1,TypeBooking.Return,flight);
+let booking2 = new Booking("B22" ,trip1 , seat1,passanger2,TypeBooking.NoReturn,flight2)
 
 
 // ========================booking ====================
@@ -100,13 +102,15 @@ airlinePP.getTotalSalary(planPP);
 console.log(airlinePP.getTotalSalary(planPP));
 
 
-// =========================Gate =================
-gatePP.addFightToGate(flight);
+// // =========================Gate =================
+// gatePP1.addFightToGate(flight);
+// gatePP2.addFightToGate(flight2);
 // ===================Airport ======================
 //  add new airline to airport 
 airportPP.addAirline(airlinePP);
 // add gate to airport 
-airportPP.addGate(gatePP);
+airportPP.addGate(gatePP1);
+airportPP.addGate(gatePP2);
 // add route to airport 
 airportPP.addRoute(routeArrival);
 
@@ -139,15 +143,6 @@ trip1.addbaggageNumber(baggage1);
 
 // ================User story 1 get all detail of user that have booking ================================
 
-// airportPP.addBooking(booking1);
-// airportPP.addBooking(booking2);
-// console.log(airportPP.getUserBooking());
-
-flight.addPlan(planGG);
-// console.log(flight.addPilotFlight(pilot));
-
-// console.log(flight);
-
 airlinePP.addBooking(booking1);
 airlinePP.addBooking(booking2);
 // console.log(airportPP.getallUserData());
@@ -175,3 +170,6 @@ flight2.addMeal(Meal.ToddierMeal);
 // console.log(airlinePP.getFood(flight));
 // console.log(airlinePP.getFood(flight2));
 
+// =============== user story 6 :As a passenger, I want to know which gate my plane is waiting at. ======================
+
+console.log(passanger1.getGateForPlane(booking1))

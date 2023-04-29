@@ -6,6 +6,7 @@ import { Booking } from "../Booking/Booking";
 import { TypeBooking } from "../Booking/TypeBooking";
 import { Passager } from "../Person/Passenger/Passanger";
 import { Meal } from "./Service/Meal";
+import { Gate } from "../Plane/Gate";
 export class Flight {
     private flightNumber: string;
     startTime: DateTime;
@@ -15,18 +16,21 @@ export class Flight {
     private plane : Plane;
     private bookings:Booking[] = [];
     private meals:Meal[]=[];
+    private gate:Gate;
     constructor(flightNumber: string ,
                 startTime: DateTime,
                 endTime: DateTime ,
                 arrival: Route,
                 departure: Route,
-                plane: Plane) {
+                plane: Plane,
+                gate:Gate) {
         this.flightNumber = flightNumber;
         this.startTime = startTime;
         this.endTime = endTime;
         this.arrival = arrival;
         this.departure = departure;
         this.plane = plane;
+        this.gate = gate
     }
     // get start time
     getStartTime(): string {
@@ -41,7 +45,7 @@ export class Flight {
     addPlan(newPlane: Plane){ 
       return this.plane = newPlane;
     }
-    getPlane(){
+    getPlane():Plane{
         return this.plane;
     }
     
@@ -50,7 +54,7 @@ export class Flight {
     addBooking(other:Booking){
         this.bookings.push(other);
     }
-    getReturnflight(){
+    getReturnflight():Passager[]{
         let returnUser:Passager[] = []
         this.bookings.forEach(booking=>{
            if(booking.getType()== TypeBooking.Return){
@@ -65,8 +69,12 @@ export class Flight {
     }
 
 
-    getMeal(){
+    getMeal():Meal[]{
         return this.meals;
+    }
+
+    getGate():Gate{
+        return this.gate;
     }
 
 }
