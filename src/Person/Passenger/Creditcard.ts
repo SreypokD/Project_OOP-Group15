@@ -7,4 +7,5 @@ export class CreditCard{
         this.cardNumber = cardNumber;
         this.cardType = cardType;
     }
+
 }

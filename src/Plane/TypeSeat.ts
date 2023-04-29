@@ -4,5 +4,5 @@ export enum TypeSeat{
     Economy,
     Premium,
     Business,
-    First,
+    First_class,
 }

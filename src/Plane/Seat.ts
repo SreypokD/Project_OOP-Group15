@@ -3,13 +3,14 @@
 import { TypeSeat } from "./TypeSeat";
 
 export class Seat{
-    private row : number;
-    private column :string;
-    private cost : number;
+    private seatNumber: string;
+    private cost : string;
     private status : boolean;
-    constructor(row:number,column:string,cost:number){
-        this.column = column;
-        this.row = row;
+    constructor(seatNumber:string,cost:string){
+        this.seatNumber = seatNumber; 
         this.cost = cost;
     }
+
+
+
 }

@@ -8,13 +8,18 @@ import { Seat } from "./Seat";
 export class Plane{
    private registrationNumber:string;
    private model : string;
-   seat:Seat[] = [];
+   seats:Seat[] = [];
    private pilot : Pilot;
-   private flightAttendant:FightAttenden[] = [];
+   private flightAttendants:FightAttenden[] = [];
    private coPilot : CoPilot;
     
    constructor(registrationNumber:string, model : string){
       this.registrationNumber = registrationNumber;
       this.model = model;
    }
+
+   // add seat to plane 
+   addSeat(seat:Seat){
+      return this.seats.push(seat);
+   } 
 }
