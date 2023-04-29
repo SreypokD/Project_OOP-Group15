@@ -31,12 +31,12 @@ let routeArrival = new Route (222);
 // create departure time
 let routeDeparture = new Route (333);
 // create seat
-let seat1 = new Seat("4C", "30$");
-let seat2 = new Seat("4C", "30$");
+let seat1 = new Seat("4A", "30$");
+let seat2 = new Seat("4B", "30$");
 let seat3 = new Seat("4C", "30$");
-let seat4 = new Seat("4C", "30$");
-let seat5 = new Seat("4C", "30$");
-let seat6 = new Seat("4C", "30$");
+let seat4 = new Seat("4D", "30$");
+let seat5 = new Seat("4B", "30$");
+let seat6 = new Seat("4B", "30$");
 // create pilot employee
 let pilot = new Pilot("GIMGA" ,"GO" , "F01" , 400);
 // create pilot employee
@@ -66,8 +66,8 @@ let passanger2 = new Passager("Sreymom" , "Chhum" , 20 , "Mom@gmail.com" , "083 
 // create Trip
 let trip1 = new Trip("Singapore" , flight, baggage1);
 // create booking 
-let booking1 = new Booking("B11" ,trip1 , seat1);
-let booking2 = new Booking("B22" ,trip1 , seat1)
+let booking1 = new Booking("B11" ,trip1 , seat1,passanger1);
+let booking2 = new Booking("B22" ,trip1 , seat1,passanger2)
 
 
 // ========================booking ====================
@@ -103,6 +103,7 @@ console.log(planPP);
 
 
 
+// console.log(flight);
 
 
 // =====================Trips =========================
@@ -115,3 +116,8 @@ trip1.addbaggageNumber(baggage1);
 
 // a passenger’s trip from their Booking Reference Number
 // console.log(airportPP.getPassengerInfo("B11"));
+
+// ================User story 1 get all detail of user that have booking ================================
+airportPP.addBooking(booking1);
+airportPP.addBooking(booking2);
+console.log(airportPP.getUserBooking());
