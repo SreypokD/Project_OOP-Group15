@@ -14,7 +14,7 @@ export class Airport {
     private airlines : Airline [] = [];
     private gates : Gate [] = [];
     private routes : Route[] = [];
-    // bookings : Booking[] = [];
+    bookings : Booking[] = [];
     constructor(name : string, 
                 country : string ,
                 address : string){
@@ -38,16 +38,19 @@ export class Airport {
         return this.routes.push(route);
     }
 
-    // get bookings 
-    // getBooking(){
-    //     return this.bookings;
-    // }
-    // // a passenger’s trip from their Booking Reference Number
-    // getPassengerInfo(bookingRefer : string){
-    //     for(let booking of this.bookings){
-    //         if(bookingRefer == booking.bookingID){
-    //             return booking;
-    //         }
-    //     }
-    // }
+
+    // add Booking 
+    addBooking(other:Booking){
+        this.bookings.push(other)
+        
+    }
+    // get booking 
+    getUserBooking(){
+        let usersData:Passager[]=[];
+        this.bookings.forEach(book=>{
+            usersData.push(book.getPassenger());
+        })
+        return usersData;
+    }
+
 }
