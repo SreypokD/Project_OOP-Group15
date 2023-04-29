@@ -3,6 +3,9 @@ import { Airport } from "./Airport/Airport";
 import { Booking } from "./Booking/Booking";
 import { DateTime } from "./Flight/DateTime";
 import { Flight } from "./Flight/Flight";
+import { CoPilot } from "./Person/Employee/CoPilot";
+import { FightAttendent } from "./Person/Employee/FightAttenden";
+import { Pilot } from "./Person/Employee/Pilot";
 import { Baggage } from "./Person/Passenger/Baggage";
 import { CreditCard } from "./Person/Passenger/Creditcard";
 import { FragmentFlyer } from "./Person/Passenger/FragmentFlyer";
@@ -34,9 +37,17 @@ let seat3 = new Seat("4C", "30$");
 let seat4 = new Seat("4C", "30$");
 let seat5 = new Seat("4C", "30$");
 let seat6 = new Seat("4C", "30$");
+// create pilot employee
+let pilot = new Pilot("GIMGA" ,"GO" , "F01" , 400);
+// create pilot employee
+let Co_pilot = new CoPilot("GIMGA" ,"GO" , "F02" , 400);
+
+// create flight atttendent
+let flight_attendent = new FightAttendent("Cheiipok" ,"Doem" , "F03" , 400);
+
 
 // create plane 
-let planPP = new Plane("OH-LWP","scale");
+let planPP = new Plane("OH-LWP","scale" ,pilot,Co_pilot);
 // create Flight
 let flight = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
 // create get 
@@ -84,8 +95,14 @@ airportPP.addRoute(routeArrival);
 // ================plane =============================
 // add seat to plane
 planPP.addSeat(seat1);
+planPP.addFlightAttendent(flight_attendent); 
+planPP.getFlightAttendent(); 
+console.log(planPP);
 
-console.log(flight);
+
+
+
+
 
 
 // =====================Trips =========================
