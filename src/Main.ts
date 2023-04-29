@@ -17,6 +17,7 @@ import { Seat } from "./Plane/Seat";
 import { Route } from "./Route/Route";
 import { Trip } from "./Trip/Trip";
 import { TypeBooking } from "./Booking/TypeBooking";
+import { Meal } from "./Flight/Service/Meal";
 // create airport
 let airportPP = new Airport ("Navin" , "Cambodia" , "Phonm Penh");
 // create airline
@@ -132,4 +133,17 @@ flight.addBooking(booking2);
 flight2.addBooking(booking1);
 flight2.addBooking(booking2);
 
-console.log(airlinePP.getFlight(flight));
+// console.log(airlinePP.getFlight(flight));
+
+
+// ===================== user story 4 get type that chef need to prepare for each flight ========================
+
+flight.addMeal(Meal.BabyMeal);
+flight.addMeal(Meal.ChildMeal);
+flight.addMeal(Meal.GlutenFreeMeal);
+
+flight2.addMeal(Meal.HalalMeal);
+flight2.addMeal(Meal.ToddierMeal);
+
+console.log(airlinePP.getFood(flight));
+console.log(airlinePP.getFood(flight2));

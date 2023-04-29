@@ -1,6 +1,7 @@
 import { Flight } from "../Flight/Flight";
 import { Passager } from "../Person/Passenger/Passanger";
 import { Booking } from "../Booking/Booking";
+import { Meal } from "../Flight/Service/Meal";
 export class Airline{
     private airlineName: string;
     private addresss: string;
@@ -47,5 +48,17 @@ export class Airline{
             }
         })
         return result;
+    }
+
+    // get food need to prepare
+    getFood(other:Flight){
+        let result:Meal[] = []
+        this.flightNumber.forEach(flight=>{
+            if(flight==other){
+                result = flight.getMeal();
+            }
+        })
+        return result;
+
     }
 }

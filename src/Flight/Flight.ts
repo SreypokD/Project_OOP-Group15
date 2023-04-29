@@ -4,6 +4,7 @@ import { DateTime } from "./DateTime";
 import { Booking } from "../Booking/Booking";
 import { TypeBooking } from "../Booking/TypeBooking";
 import { Passager } from "../Person/Passenger/Passanger";
+import { Meal } from "./Service/Meal";
 export class Flight {
     private flightNumber: string;
     startTime: DateTime;
@@ -12,6 +13,7 @@ export class Flight {
     departure: Route;
     private plane : Plane;
     private bookings:Booking[] = [];
+    private meals:Meal[]=[];
     constructor(flightNumber: string ,
                 startTime: DateTime,
                 endTime: DateTime ,
@@ -47,4 +49,12 @@ export class Flight {
         return returnUser;
     }
 
+    addMeal(other:Meal){
+        this.meals.push(other);
+    }
+
+
+    getMeal(){
+        return this.meals;
+    }
 }
