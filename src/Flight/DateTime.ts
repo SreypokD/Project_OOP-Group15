@@ -5,4 +5,7 @@ export class DateTime{
         this.date = date;
         this.time = time;
     }
+    getDate():string{
+        return this.date;
+    }
 }

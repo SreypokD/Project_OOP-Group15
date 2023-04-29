@@ -48,8 +48,11 @@ let flight_attendent = new FightAttendent("Cheiipok" ,"Doem" , "F03" , 400);
 
 // create plane 
 let planPP = new Plane("OH-LWP","scale" ,pilot,Co_pilot);
+let planGG = new Plane("OH-LWPP","scale" ,pilot,Co_pilot);
 // create Flight
 let flight = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
+let flight1 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
+let flight2 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
 // create get 
 let gatePP = new Gate("11A",flight);
 // create bag of passager
@@ -97,17 +100,20 @@ airportPP.addRoute(routeArrival);
 planPP.addSeat(seat1);
 planPP.addFlightAttendent(flight_attendent); 
 planPP.getFlightAttendent(); 
-console.log(planPP);
+// console.log(planPP.getPilot());
 
 
 
-
-
-// console.log(flight);
+// ====================pilot =============================
+pilot.addFlight(flight);
+pilot.addFlight(flight1);
+pilot.addFlight(flight2);
+console.log(pilot.getFlights('28/04/2022'));
 
 
 // =====================Trips =========================
 trip1.addFlightinTrip(flight);
+
 trip1.addbaggageNumber(baggage1);
 
 
@@ -120,4 +126,9 @@ trip1.addbaggageNumber(baggage1);
 // ================User story 1 get all detail of user that have booking ================================
 airportPP.addBooking(booking1);
 airportPP.addBooking(booking2);
-console.log(airportPP.getUserBooking());
+// console.log(airportPP.getUserBooking());
+
+flight.addPlan(planGG);
+// console.log(flight.addPilotFlight(pilot));
+
+// console.log(flight);

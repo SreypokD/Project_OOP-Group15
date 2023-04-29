@@ -1,3 +1,4 @@
+import { Pilot } from "../Person/Employee/Pilot";
 import { Plane } from "../Plane/Plane";
 import { Route } from "../Route/Route";
 import { DateTime } from "./DateTime";
@@ -23,12 +24,20 @@ export class Flight {
         this.plane = plane;
     }
     // get start time
-    getStartTime(): DateTime {
-        return this.startTime;
+    getStartTime(): string {
+        return this.startTime.getDate();
     }
     // get end time 
     getEndTime(): DateTime {
         return this.endTime;
     }
+
+    addPlan(newPlane: Plane){ 
+      return this.plane = newPlane;
+    }
+    getPlane(){
+        return this.plane;
+    }
+    
 
 }
