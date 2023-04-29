@@ -97,9 +97,8 @@ airlinePP.addFlight(flight2);
 airlinePP.addPassanger(passanger1);
 // add plane to airline
 airlinePP.addPlanes(planPP);
-airlinePP.getTotalSalary(planPP);
 // console.log(airlinePP);
-console.log(airlinePP.getTotalSalary(planPP));
+
 
 
 // // =========================Gate =================
@@ -126,7 +125,7 @@ airportPP.addRoute(routeArrival);
 pilot.addFlight(flight);
 pilot.addFlight(flight1);
 pilot.addFlight(flight2);
-// console.log(pilot.getFlights('28/04/2022'));
+
 
 
 // =====================Trips =========================
@@ -145,7 +144,7 @@ trip1.addbaggageNumber(baggage1);
 
 airlinePP.addBooking(booking1);
 airlinePP.addBooking(booking2);
-// console.log(airportPP.getallUserData());
+console.log(airportPP.getallUserData());
 
 
 
@@ -154,11 +153,12 @@ flight.addBooking(booking1);
 flight.addBooking(booking2);
 flight2.addBooking(booking1);
 flight2.addBooking(booking2);
+console.log(airlinePP.getFlight(flight));
 
-// console.log(airlinePP.getFlight(flight));
+// ====================== user story 3 : As an airline pilot, I want to know, for a given date, how many flights I have to join======================
+console.log(pilot.getFlights('28/04/2022'));
 
-
-// ===================== user story 4 get type that chef need to prepare for each flight ========================
+// ===================== user story 4 : get type that chef need to prepare for each flight ========================
 
 flight.addMeal(Meal.BabyMeal);
 flight.addMeal(Meal.ChildMeal);
@@ -170,6 +170,8 @@ flight2.addMeal(Meal.ToddierMeal);
 // console.log(airlinePP.getFood(flight));
 // console.log(airlinePP.getFood(flight2));
 
-// =============== user story 6 :As a passenger, I want to know which gate my plane is waiting at. ======================
+// =======================user story 5: As an airline manager, I want to find out how much salary I pay all my employees====================
+console.log(airlinePP.getTotalSalary(planPP));
 
+// =============== user story 6 :As a passenger, I want to know which gate my plane is waiting at. ======================
 console.log(passanger1.getGateForPlane(booking1))
