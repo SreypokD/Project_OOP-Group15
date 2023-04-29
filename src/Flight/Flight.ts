@@ -1,7 +1,9 @@
 import { Plane } from "../Plane/Plane";
 import { Route } from "../Route/Route";
 import { DateTime } from "./DateTime";
-
+import { Booking } from "../Booking/Booking";
+import { TypeBooking } from "../Booking/TypeBooking";
+import { Passager } from "../Person/Passenger/Passanger";
 export class Flight {
     private flightNumber: string;
     startTime: DateTime;
@@ -9,6 +11,7 @@ export class Flight {
     arrival: Route;
     departure: Route;
     private plane : Plane;
+    private bookings:Booking[] = [];
     constructor(flightNumber: string ,
                 startTime: DateTime,
                 endTime: DateTime ,
@@ -29,6 +32,19 @@ export class Flight {
     // get end time 
     getEndTime(): DateTime {
         return this.endTime;
+    }
+
+    addBooking(other:Booking){
+        this.bookings.push(other);
+    }
+    getReturnflight(){
+        let returnUser:Passager[] = []
+        this.bookings.forEach(booking=>{
+           if(booking.getType()== TypeBooking.Return){
+             returnUser.push(booking.getPassenger())
+           }
+        })
+        return returnUser;
     }
 
 }

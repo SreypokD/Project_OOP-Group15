@@ -37,4 +37,15 @@ export class Airline{
         })
         return usersData;
     }
+
+    // get flight
+    getFlight(other:Flight){
+        let result: Passager[]=[]
+        this.flightNumber.forEach(flight=>{
+            if(other==flight){
+                result = flight.getReturnflight();
+            }
+        })
+        return result;
+    }
 }

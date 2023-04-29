@@ -24,4 +24,8 @@ export class Booking {
     getPassenger(){
         return this.passager;
     }
+    
+    getType(){
+        return this.typeBooking;
+    }
 }

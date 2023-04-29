@@ -50,6 +50,7 @@ let flight_attendent = new FightAttendent("Cheiipok" ,"Doem" , "F03" , 400);
 let planPP = new Plane("OH-LWP","scale" ,pilot,Co_pilot);
 // create Flight
 let flight = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
+let flight2 = new Flight("AY643", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
 // create get 
 let gatePP = new Gate("11A",flight);
 // create bag of passager
@@ -79,6 +80,7 @@ passanger1.getBookingNumber(booking1);
 // ===========================Airline ===================
 // add flight to airline 
 airlinePP.addFlight(flight);
+airlinePP.addFlight(flight2);
 // add passenger to airline
 airlinePP.addPassanger(passanger1);
 
@@ -120,8 +122,14 @@ trip1.addbaggageNumber(baggage1);
 // ================User story 1 get all detail of user that have booking ================================
 airlinePP.addBooking(booking1);
 airlinePP.addBooking(booking2);
-console.log(airportPP.getallUserData());
+// console.log(airportPP.getallUserData());
 
 
 
 // ================== user story 2 get all passenger that have return ticket when give flight ======================
+flight.addBooking(booking1);
+flight.addBooking(booking2);
+flight2.addBooking(booking1);
+flight2.addBooking(booking2);
+
+console.log(airlinePP.getFlight(flight));
