@@ -16,7 +16,8 @@ import { Plane } from "./Plane/Plane";
 import { Seat } from "./Plane/Seat";
 import { Route } from "./Route/Route";
 import { Trip } from "./Trip/Trip";
-
+import { TypeBooking } from "./Booking/TypeBooking";
+import { Meal } from "./Flight/Service/Meal";
 // create airport
 let airportPP = new Airport ("Navin" , "Cambodia" , "Phonm Penh");
 // create airline
@@ -51,8 +52,11 @@ let planPP = new Plane("OH-LWP","scale" ,pilot,Co_pilot);
 let planGG = new Plane("OH-LWPP","scale" ,pilot,Co_pilot);
 // create Flight
 let flight = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
+
 let flight1 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
 let flight2 = new Flight("AY6404", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
+let flight3 = new Flight("AY643", dateStart , dateEnd ,routeArrival,routeDeparture,planPP);
+
 // create get 
 let gatePP = new Gate("11A",flight);
 // create bag of passager
@@ -69,8 +73,8 @@ let passanger2 = new Passager("Sreymom" , "Chhum" , 20 , "Mom@gmail.com" , "083 
 // create Trip
 let trip1 = new Trip("Singapore" , flight, baggage1);
 // create booking 
-let booking1 = new Booking("B11" ,trip1 , seat1,passanger1);
-let booking2 = new Booking("B22" ,trip1 , seat1,passanger2)
+let booking1 = new Booking("B11" ,trip1 , seat1,passanger1,TypeBooking.Return);
+let booking2 = new Booking("B22" ,trip1 , seat1,passanger2,TypeBooking.NoReturn)
 
 
 // ========================booking ====================
@@ -82,6 +86,7 @@ passanger1.getBookingNumber(booking1);
 // ===========================Airline ===================
 // add flight to airline 
 airlinePP.addFlight(flight);
+airlinePP.addFlight(flight2);
 // add passenger to airline
 airlinePP.addPassanger(passanger1);
 
@@ -101,6 +106,9 @@ planPP.addSeat(seat1);
 planPP.addFlightAttendent(flight_attendent); 
 planPP.getFlightAttendent(); 
 // console.log(planPP.getPilot());
+
+// console.log(planPP);
+
 
 
 
@@ -124,11 +132,40 @@ trip1.addbaggageNumber(baggage1);
 // console.log(airportPP.getPassengerInfo("B11"));
 
 // ================User story 1 get all detail of user that have booking ================================
-airportPP.addBooking(booking1);
-airportPP.addBooking(booking2);
+
+// airportPP.addBooking(booking1);
+// airportPP.addBooking(booking2);
 // console.log(airportPP.getUserBooking());
 
 flight.addPlan(planGG);
 // console.log(flight.addPilotFlight(pilot));
 
 // console.log(flight);
+
+airlinePP.addBooking(booking1);
+airlinePP.addBooking(booking2);
+// console.log(airportPP.getallUserData());
+
+
+
+// ================== user story 2 get all passenger that have return ticket when give flight ======================
+flight.addBooking(booking1);
+flight.addBooking(booking2);
+flight2.addBooking(booking1);
+flight2.addBooking(booking2);
+
+// console.log(airlinePP.getFlight(flight));
+
+
+// ===================== user story 4 get type that chef need to prepare for each flight ========================
+
+flight.addMeal(Meal.BabyMeal);
+flight.addMeal(Meal.ChildMeal);
+flight.addMeal(Meal.GlutenFreeMeal);
+
+flight2.addMeal(Meal.HalalMeal);
+flight2.addMeal(Meal.ToddierMeal);
+
+console.log(airlinePP.getFood(flight));
+console.log(airlinePP.getFood(flight2));
+
